@@ -1,13 +1,14 @@
 from flask import Flask,request,jsonify
+import os
 app = Flask(__name__)
 
 
 # twitter start
 import tweepy
-consumer_key = 'H9A5eK2Em8XDPiXC6vSWjPe5R'
-consumer_secret = 'EEl5hdTFlq3dIf5CEDNDUVCqpiYlbG1vzsT5VdbCwQpnxnC9y1'
-access_token = '1434164272137834501-YSv0SsVqqpIa9JF2Xy8nsCFFDVEawn'
-access_token_secret = 'WmPx7MnxoF37LO0HfLR5cMsw68662iMVLWbxrfD30Vh6L'
+consumer_key = os.environ.get('consumer_key')
+consumer_secret = os.environ.get('consumer_secret')
+access_token = os.environ.get('access_token')
+access_token_secret = os.environ.get('access_token_secret')
 
 auth = tweepy.OAuthHandler(consumer_key,consumer_secret)
 auth.set_access_token(access_token,access_token_secret)
